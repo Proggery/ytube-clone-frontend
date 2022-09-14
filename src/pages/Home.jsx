@@ -15,7 +15,7 @@ const Home = ({ type }) => {
   useEffect(() => {
     const fetchVideos = async () => {
       const res = await axios.get(
-        `https://ytube-clone-backend.herokuapp.com/api/videos/${type}`
+        `https://ytube-clone-backend.herokuapp.com/videos/${type}`
       );
       setVideos(res.data);
     };
