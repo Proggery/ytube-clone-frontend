@@ -67,7 +67,7 @@ const Card = ({ type, video }) => {
   }, [video.userId]);
 
   const teszt = () => {
-    window.location.href(`https://ytube-clone-frontend.herokuapp.com/#/video/${video._id}`)
+    window.location.replace(`https://ytube-clone-frontend.herokuapp.com/#/video/${video._id}`)
   }
 
   return (
