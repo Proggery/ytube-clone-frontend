@@ -62,7 +62,7 @@ const Card = ({ type, video }) => {
   useEffect(() => {
     const fetchChannel = async () => {
       const res = await axios.get(
-        `https://ytube-clone-backend.herokuapp.com/users/find/${video.userId}`
+        `https://ytube-clone-backend.herokuapp.com/api/users/find/${video.userId}`
       );
       setChannel(res.data);
     };
@@ -72,7 +72,7 @@ const Card = ({ type, video }) => {
   return (
     <ExternalLink
       target="_blank"
-      href={`https://ytube-clone-backend.herokuapp.com/video/${video._id}`}
+      href={`https://ytube-clone-backend.herokuapp.com/api/video/${video._id}`}
       style={{ textDecoration: "none" }}
     >
       <Container type={type}>
