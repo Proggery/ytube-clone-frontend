@@ -123,7 +123,9 @@ const Video = () => {
 
   useEffect(() => {
     const fetchVideo = async () => {
-      const res = await axios.get(`/videos/find/${id}`);
+      const res = await axios.get(
+        `https://ytube-clone-backend.herokuapp.com/api/videos/find/${id}`
+      );
       setVideo(res.data);
     };
     fetchVideo();
@@ -132,7 +134,9 @@ const Video = () => {
   useEffect(() => {
     if (video.userId) {
       const fetchChannel = async () => {
-        const res = await axios.get(`/users/find/${video.userId}`);
+        const res = await axios.get(
+          `https://ytube-clone-backend.herokuapp.com/api/users/find/${video.userId}`
+        );
         setChannel(res.data);
       };
       fetchChannel();
