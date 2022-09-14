@@ -116,11 +116,19 @@ const Video = () => {
   signinUser = JSON.parse(signinUser.user);
   signinUser = signinUser.currentUser;
 
+  
   const [video, setVideo] = useState({});
   const [channel, setChannel] = useState({});
   const [isSub, setIsSub] = useState(true);
   const [isUser, setIsUser] = useState(false);
-
+  
+  console.log(params);
+  console.log(id);
+  console.log(video);
+  console.log(channel);
+  console.log(isSub);
+  console.log(isUser);
+  
   useEffect(() => {
     const fetchVideo = async () => {
       const res = await axios.get(
@@ -180,7 +188,8 @@ const Video = () => {
   return (
     <Container>
       <Content>
-        <VideoWrapper>
+        <h2>teszt</h2>
+        {/* <VideoWrapper>
           <iframe
             width="100%"
             height="420"
@@ -234,7 +243,7 @@ const Video = () => {
           {!isUser && subscribe()}
         </Channel>
         <Hr />
-        <Comments />
+        <Comments /> */}
       </Content>
       {/* <Recommendation>
         <Card type="sm" />
