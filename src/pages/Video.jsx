@@ -109,73 +109,73 @@ const Subscribe = styled.button`
 `;
 
 const Video = () => {
-  const params = useParams();
-  const id = params.id;
-  let signinUser = localStorage.getItem("persist:root");
-  signinUser = JSON.parse(signinUser);
-  signinUser = JSON.parse(signinUser.user);
-  signinUser = signinUser.currentUser;
+  // const params = useParams();
+  // const id = params.id;
+  // let signinUser = localStorage.getItem("persist:root");
+  // signinUser = JSON.parse(signinUser);
+  // signinUser = JSON.parse(signinUser.user);
+  // signinUser = signinUser.currentUser;
 
-  const [video, setVideo] = useState({});
-  const [channel, setChannel] = useState({});
-  const [isSub, setIsSub] = useState(true);
-  const [isUser, setIsUser] = useState(false);
+  // const [video, setVideo] = useState({});
+  // const [channel, setChannel] = useState({});
+  // const [isSub, setIsSub] = useState(true);
+  // const [isUser, setIsUser] = useState(false);
 
-  useEffect(() => {
-    const fetchVideo = async () => {
-      const res = await axios.get(
-        `https://ytube-clone-backend.herokuapp.com/api/videos/find/${id}`
-      );
-      setVideo(res.data);
-    };
-    fetchVideo();
-  }, [id]);
+  // useEffect(() => {
+  //   const fetchVideo = async () => {
+  //     const res = await axios.get(
+  //       `https://ytube-clone-backend.herokuapp.com/api/videos/find/${id}`
+  //     );
+  //     setVideo(res.data);
+  //   };
+  //   fetchVideo();
+  // }, [id]);
 
-  useEffect(() => {
-    if (video.userId) {
-      const fetchChannel = async () => {
-        const res = await axios.get(
-          `https://ytube-clone-backend.herokuapp.com/api/users/find/${video.userId}`
-        );
-        setChannel(res.data);
-      };
-      fetchChannel();
-    }
-  }, [video.userId]);
+  // useEffect(() => {
+  //   if (video.userId) {
+  //     const fetchChannel = async () => {
+  //       const res = await axios.get(
+  //         `https://ytube-clone-backend.herokuapp.com/api/users/find/${video.userId}`
+  //       );
+  //       setChannel(res.data);
+  //     };
+  //     fetchChannel();
+  //   }
+  // }, [video.userId]);
 
-  useEffect(() => {
-    if (signinUser._id !== video.userId) {
-      setIsUser(!isUser);
-    }
-  }, [signinUser._id, video.userId]);
+  // useEffect(() => {
+  //   if (signinUser._id !== video.userId) {
+  //     setIsUser(!isUser);
+  //   }
+  // }, [signinUser._id, video.userId]);
 
-  const sub = () => {
-    const fetchSubscribe = async () => {
-      await axios.put(
-        `https://ytube-clone-backend.herokuapp.com/api/users/sub/${channel._id}`
-      );
-    };
-    fetchSubscribe();
-    setIsSub(!isSub);
-  };
+  // const sub = () => {
+  //   const fetchSubscribe = async () => {
+  //     await axios.put(
+  //       `https://ytube-clone-backend.herokuapp.com/api/users/sub/${channel._id}`
+  //     );
+  //   };
+  //   fetchSubscribe();
+  //   setIsSub(!isSub);
+  // };
 
-  const unsub = () => {
-    const fetchSubscribe = async () => {
-      await axios.put(
-        `https://ytube-clone-backend.herokuapp.com/api/users/unsub/${channel._id}`
-      );
-    };
-    fetchSubscribe();
-    setIsSub(!isSub);
-  };
+  // const unsub = () => {
+  //   const fetchSubscribe = async () => {
+  //     await axios.put(
+  //       `https://ytube-clone-backend.herokuapp.com/api/users/unsub/${channel._id}`
+  //     );
+  //   };
+  //   fetchSubscribe();
+  //   setIsSub(!isSub);
+  // };
 
-  const subscribe = () => {
-    if (isSub) {
-      return <Subscribe onClick={sub}>SUBSCRIBE</Subscribe>;
-    } else {
-      return <Subscribe onClick={unsub}>UNSUBSCRIBE</Subscribe>;
-    }
-  };
+  // const subscribe = () => {
+  //   if (isSub) {
+  //     return <Subscribe onClick={sub}>SUBSCRIBE</Subscribe>;
+  //   } else {
+  //     return <Subscribe onClick={unsub}>UNSUBSCRIBE</Subscribe>;
+  //   }
+  // };
 
   return (
     <Container>
