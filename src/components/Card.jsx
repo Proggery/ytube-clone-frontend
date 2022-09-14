@@ -70,8 +70,7 @@ const Card = ({ type, video }) => {
   return (
     <Link
       target="_blank"
-      // to={`video/${video._id}`}
-      to={`video`}
+      to={`https://ytube-clone-frontend.herokuapp.com/video/${video._id}`}
       style={{ textDecoration: "none" }}
     >
       <Container type={type}>
