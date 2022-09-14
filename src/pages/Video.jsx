@@ -179,7 +179,8 @@ const Video = () => {
 
   return (
     <Container>
-      <Content>
+      teszt
+      {/* <Content>
         <VideoWrapper>
           <iframe
             width="100%"
@@ -235,7 +236,7 @@ const Video = () => {
         </Channel>
         <Hr />
         <Comments />
-      </Content>
+      </Content> */}
       {/* <Recommendation>
         <Card type="sm" />
         <Card type="sm" />
