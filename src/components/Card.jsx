@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ExternalLink } from "react-external-link";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { format } from "timeago.js";
 
@@ -68,9 +67,9 @@ const Card = ({ type, video }) => {
   }, [video.userId]);
 
   return (
-    <Link
+    <ExternalLink
       target="_blank"
-      to={`https://ytube-clone-frontend.herokuapp.com/video/${video._id}`}
+      href={`https://ytube-clone-frontend.herokuapp.com/video/${video._id}`}
       style={{ textDecoration: "none" }}
     >
       <Container type={type}>
@@ -90,7 +89,7 @@ const Card = ({ type, video }) => {
           </Texts>
         </Details>
       </Container>
-    </Link>
+    </ExternalLink>
   );
 };
 
