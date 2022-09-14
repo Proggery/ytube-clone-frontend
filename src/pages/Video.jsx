@@ -151,7 +151,9 @@ const Video = () => {
 
   const sub = () => {
     const fetchSubscribe = async () => {
-      await axios.put(`/users/sub/${channel._id}`);
+      await axios.put(
+        `https://ytube-clone-backend.herokuapp.com/api/users/sub/${channel._id}`
+      );
     };
     fetchSubscribe();
     setIsSub(!isSub);
