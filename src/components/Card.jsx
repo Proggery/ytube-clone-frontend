@@ -70,7 +70,8 @@ const Card = ({ type, video }) => {
   return (
     <Link
       target="_blank"
-      to={`video/${video._id}`}
+      // to={`video/${video._id}`}
+      to={`video`}
       style={{ textDecoration: "none" }}
     >
       <Container type={type}>
