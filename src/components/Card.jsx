@@ -1,11 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { ExternalLink } from "react-external-link";
 import styled from "styled-components";
 import { format } from "timeago.js";
-import axios from "axios";
-import { useEffect } from "react";
-import { ExternalLink } from "react-external-link";
 
 const Container = styled.div`
   width: ${(props) => props.type !== "sm" && "360px"};
@@ -76,7 +73,7 @@ const Card = ({ type, video }) => {
       style={{ textDecoration: "none" }}
     >
       <Container type={type}>
-        <Image type={type} src={video.imgUrl} />
+        <Image style={{height: 200, objectFit: "cover"}} type={type} src={video.imgUrl} />
         <Details type={type}>
           <ChannelImage type={type} src={channel.img} />
           <Texts>
