@@ -66,10 +66,13 @@ const Card = ({ type, video }) => {
     fetchChannel();
   }, [video.userId]);
 
+  const teszt = () => {
+    window.location.href(`https://ytube-clone-frontend.herokuapp.com/#/video/${video._id}`)
+  }
+
   return (
     <ExternalLink
-      target="_blank"
-      href={`https://ytube-clone-frontend.herokuapp.com/#/video/${video._id}`}
+      onClick={teszt}
       style={{ textDecoration: "none" }}
     >
       <Container type={type}>
