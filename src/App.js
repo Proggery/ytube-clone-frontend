@@ -1,12 +1,12 @@
 import { useState } from "react";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import styled, { ThemeProvider } from "styled-components";
 import Menu from "./components/Menu";
 import Navbar from "./components/Navbar";
-import { darkTheme, lightTheme } from "./utils/Theme";
-import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Video from "./pages/Video";
 import SignIn from "./pages/SignIn";
+import Video from "./pages/Video";
+import { darkTheme, lightTheme } from "./utils/Theme";
 
 const Container = styled.div`
   display: flex;

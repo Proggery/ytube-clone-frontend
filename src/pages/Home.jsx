@@ -1,6 +1,6 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import apiClient from "../api/apiClient";
 import Card from "../components/Card";
 
 const Container = styled.div`
@@ -14,8 +14,8 @@ const Home = ({ type }) => {
 
   useEffect(() => {
     const fetchVideos = async () => {
-      const res = await axios.get(
-        `https://ytube-clone-backend.herokuapp.com/api/videos/${type}`
+      const res = await apiClient.get(
+        `/videos/${type}`
       );
       setVideos(res.data);
     };

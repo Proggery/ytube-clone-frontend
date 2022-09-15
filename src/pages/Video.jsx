@@ -2,13 +2,12 @@ import {
   AddTaskOutlined,
   ReplyOutlined,
   ThumbDownOffAltOutlined,
-  ThumbUpOutlined,
+  ThumbUpOutlined
 } from "@mui/icons-material";
-import axios from "axios";
-import React, { useEffect } from "react";
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import apiClient from "../api/apiClient";
 import Comments from "../components/Comments";
 
 const Container = styled.div`
@@ -116,24 +115,21 @@ const Video = () => {
   signinUser = JSON.parse(signinUser.user);
   signinUser = signinUser.currentUser;
 
-  
   const [video, setVideo] = useState({});
   const [channel, setChannel] = useState({});
   const [isSub, setIsSub] = useState(true);
   const [isUser, setIsUser] = useState(false);
-  
+
   console.log(params);
   console.log(id);
   console.log(video);
   console.log(channel);
   console.log(isSub);
   console.log(isUser);
-  
+
   useEffect(() => {
     const fetchVideo = async () => {
-      const res = await axios.get(
-        `https://ytube-clone-backend.herokuapp.com/api/videos/find/${id}`
-      );
+      const res = await apiClient.get(`/videos/find/${id}`);
       setVideo(res.data);
     };
     fetchVideo();
@@ -142,9 +138,7 @@ const Video = () => {
   useEffect(() => {
     if (video.userId) {
       const fetchChannel = async () => {
-        const res = await axios.get(
-          `https://ytube-clone-backend.herokuapp.com/api/users/find/${video.userId}`
-        );
+        const res = await apiClient.get(`/users/find/${video.userId}`);
         setChannel(res.data);
       };
       fetchChannel();
@@ -159,9 +153,7 @@ const Video = () => {
 
   const sub = () => {
     const fetchSubscribe = async () => {
-      await axios.put(
-        `https://ytube-clone-backend.herokuapp.com/api/users/sub/${channel._id}`
-      );
+      await apiClient.put(`/users/sub/${channel._id}`);
     };
     fetchSubscribe();
     setIsSub(!isSub);
@@ -169,9 +161,7 @@ const Video = () => {
 
   const unsub = () => {
     const fetchSubscribe = async () => {
-      await axios.put(
-        `https://ytube-clone-backend.herokuapp.com/api/users/unsub/${channel._id}`
-      );
+      await apiClient.put(`/users/unsub/${channel._id}`);
     };
     fetchSubscribe();
     setIsSub(!isSub);

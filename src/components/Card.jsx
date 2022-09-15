@@ -1,8 +1,8 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { ExternalLink } from "react-external-link";
 import styled from "styled-components";
 import { format } from "timeago.js";
+import apiClient from "../api/apiClient";
 
 const Container = styled.div`
   width: ${(props) => props.type !== "sm" && "360px"};
@@ -58,8 +58,8 @@ const Card = ({ type, video }) => {
 
   useEffect(() => {
     const fetchChannel = async () => {
-      const res = await axios.get(
-        `https://ytube-clone-backend.herokuapp.com/api/users/find/${video.userId}`
+      const res = await apiClient.get(
+        `/users/find/${video.userId}`
       );
       setChannel(res.data);
     };

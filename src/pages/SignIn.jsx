@@ -1,11 +1,11 @@
-import React from "react";
-import { useState } from "react";
-import styled from "styled-components";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { loginStart, loginSuccess, loginFailure } from "../redux/userSlice";
-import { auth, provider } from "../firebase";
 import { signInWithPopup } from "firebase/auth";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import styled from "styled-components";
+import apiClient from "../api/apiClient";
+import { auth, provider } from "../firebase";
+import { loginFailure, loginStart, loginSuccess } from "../redux/userSlice";
 
 const Container = styled.div`
   display: flex;
@@ -80,8 +80,8 @@ const SignIn = () => {
     e.preventDefault();
     dispatch(loginStart());
     try {
-      const res = await axios.post(
-        "https://ytube-clone-backend.herokuapp.com/api/auth/signin",
+      const res = await apiClient.post(
+        "/auth/signin",
         { name, password }
       );
       dispatch(loginSuccess(res.data));
